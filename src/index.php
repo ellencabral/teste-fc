@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<?php include 'config.php' ?>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de médicos</title>
-    <link rel="stylesheet" type="text/css" href="<?php echo URL;?>model/css/style.css">
-</head>
-<body>
-    <a href='view/cadastro-medico.php'>Cadastro de médico</a>
+<?php 
+    include ('header.php');
+    include 'model/medico-classe-dao.php';
+
+    $medicoDAO = new MedicoDAO();
+    $medicos = $medicoDAO->listaMedico();
+
+    foreach ($medicos as $medico) {
+        ?>
+        <div class="medico-container">
+            <?= $medico->nome ?>
+        
+            <button><a href='view/editar-cadastro-medico.php?id=<?= $medico->id ?>&medico=true'>Editar cadastro</a></button>
+            <button><a href='view/config-horarios.php?id=<?= $medico->id ?>&medico=true'>Configurar horários</a></button>  
+        </div>  
+        <?php
+    }
+    ?>
 </body>
 </html>
