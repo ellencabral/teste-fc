@@ -1,4 +1,5 @@
 <?php
+  include '../config.php';
   include "../model/medico-classe.php";
   include "../model/medico-classe-dao.php";
 
@@ -11,7 +12,7 @@
     $medico->setSenha(md5($_POST['senha']));
 
     if($medicoDAO->cadastraMedico($medico)) {
-        echo "Cadastrado com sucesso";
+      header('location: '.URL.'index.php');
     }
     else {
         echo 'Erro';
@@ -26,7 +27,7 @@
     $senhaantiga = md5($_POST['senhaantiga']);
     
     if($medicoDAO->atualizaMedico($medico, $senhaantiga)) {
-      echo "Atualizado com sucesso";
+      header('location: '.URL.'index.php');
     }
     else {
       echo 'Senha incorreta';
