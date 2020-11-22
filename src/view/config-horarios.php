@@ -45,6 +45,7 @@
             if($horario->horario_agendado == 0) { ?>
               <form method='post' action='../controller/horario-controller.php'>
                 <input type='hidden' name='id' value='<?= $horario->id ?>'/>
+                <input type='hidden' name='id-medico' value='<?= $id_medico ?>'/>
                 <button type='submit' name='remove'>Remover</button>
               </form>
             <?php

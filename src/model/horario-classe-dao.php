@@ -38,7 +38,7 @@ class HorarioDAO extends Conexao {
 
     public function listaHorarios($id_medico) {
         try {
-            $stmt = $this->pdo->prepare('SELECT * FROM horario WHERE id_medico = :id_medico' );
+            $stmt = $this->pdo->prepare('SELECT * FROM horario WHERE id_medico = :id_medico ORDER BY data_horario ASC' );
             $stmt->bindValue(':id_medico', $id_medico);
 
             if ($stmt->execute()) {   

@@ -13,7 +13,7 @@
     $date = $horario->getDataHorario();
 
     if($horarioDAO->cadastraHorario($horario, $id_medico)) {
-        echo 'Cadastrado com sucesso';
+      header('location: ../view/config-horarios.php?id='.$id_medico.'&medico=true');
     }
     else {
         echo 'Erro';
@@ -24,7 +24,7 @@
     $horario->setId($_POST['id']);
 
     if($horarioDAO->removeHorario($horario)) {
-      echo 'Removido com sucesso';
+      header('location: ../view/config-horarios.php?id='.$_POST['id-medico'].'&medico=true');
     }
     else {
       echo 'Erro';
@@ -33,9 +33,9 @@
 
   if(isset($_POST['agenda'])) {
     $horario->setId($_POST['id']);
-    
+
     if($horarioDAO->agendaHorario($horario)) {
-      echo 'Agendado com sucesso';
+      header('location: ../index.php');
     }
     else {
       echo 'Erro';
