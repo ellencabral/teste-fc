@@ -38,7 +38,7 @@ class MedicoDAO extends Conexao {
 
     public function listaMedicos() {
         try {
-            $stmt = $this->pdo->query('SELECT DISTINCT medico.id, medico.nome, medico.email, medico.senha, min(horario.data_horario) FROM medico JOIN horario ON medico.id = horario.id_medico GROUP BY medico.id ORDER BY min(horario.data_horario) ASC');
+            $stmt = $this->pdo->query('SELECT DISTINCT medico.id, medico.nome, medico.email, medico.senha, min(horario.data_horario) FROM medico LEFT JOIN horario ON medico.id = horario.id_medico AND horario.horario_agendado = 0 GROUP BY medico.id ORDER BY min(horario.data_horario) ASC');
             $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
 
             return $dados;
