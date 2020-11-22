@@ -1,7 +1,7 @@
 <?php
   include '../config.php';
-  include "../model/medico-classe.php";
-  include "../model/medico-classe-dao.php";
+  include '../model/medico-classe.php';
+  include '../model/medico-classe-dao.php';
 
   $medicoDAO = new MedicoDAO();
   $medico = new Medico();

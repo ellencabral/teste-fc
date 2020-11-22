@@ -1,4 +1,5 @@
-<?php include ('../header.php'); ?>
+<?php 
+    include '../header.php'; ?>
 
     <h1>Cadastro de médico</h1>
 

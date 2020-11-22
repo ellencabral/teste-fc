@@ -1,7 +1,6 @@
 <?php
-  include '../config.php';
-  include "../model/horario-classe.php";
-  include "../model/horario-classe-dao.php";
+  include '../model/horario-classe.php';
+  include '../model/horario-classe-dao.php';
 
   $horarioDAO = new HorarioDAO();
   $horario = new Horario();

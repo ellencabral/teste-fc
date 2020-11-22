@@ -1,5 +1,5 @@
 <?php 
-  include ('../header.php'); 
+  include '../header.php';
   include '../model/medico-classe.php';
   include '../model/medico-classe-dao.php';
   include '../model/horario-classe-dao.php';
