@@ -3,12 +3,13 @@
   include '../model/medico-classe.php';
   include '../model/medico-classe-dao.php';
 
-  if($_GET['medico'] == true) {
-    $id = $_GET['id'];
+  if($_GET['medico']) {
     $medicoDAO = new MedicoDAO();
     $medico = new Medico();
+    
+    $medico->setId($_GET['id']);
 
-    $usuario = $medicoDAO->visualizaMedico($id, $medico);
+    $usuario = $medicoDAO->visualizaMedico($medico);
   }
   ?>
 

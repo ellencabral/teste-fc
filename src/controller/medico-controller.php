@@ -5,7 +5,7 @@
   $medicoDAO = new MedicoDAO();
   $medico = new Medico();
   
-  if(isset($_POST['cadastro'])) {
+  if(isset($_POST['cadastra'])) {
     $medico->setEmail($_POST['email']);
     $medico->setNome($_POST['nome']);
     $medico->setSenha(md5($_POST['senha']));
@@ -31,10 +31,6 @@
     else {
       echo 'Senha incorreta';
     }
-  }
-
-  if(isset($_POST['exclui'])) {
-    echo "Excluiu o usuário";
   }
 
 ?>

@@ -36,7 +36,7 @@ class MedicoDAO extends Conexao {
         }
     }
 
-    public function listaMedico() {
+    public function listaMedicos() {
         try {
             $stmt = $this->pdo->query('SELECT * FROM medico' );
             $dados = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -48,10 +48,10 @@ class MedicoDAO extends Conexao {
         }
     }
 
-    public function visualizaMedico($id, Medico $medico) {
+    public function visualizaMedico(Medico $medico) {
         try {
             $stmt = $this->pdo->prepare('SELECT * FROM medico WHERE id = :id' );
-            $stmt->bindValue(':id', $id);
+            $stmt->bindValue(':id', $medico->getId());
 
             if ($stmt->execute()) {   
                 $dado = $stmt->fetch(PDO::FETCH_OBJ);
@@ -83,7 +83,10 @@ class MedicoDAO extends Conexao {
             $usuario = $medicoDAO->visualizaMedico($id, $medicoA);
 
             if($usuario->getSenha() == $senhaantiga) {
-                $stmt = $this->pdo->prepare('UPDATE medico SET nome = :nome, senha = :senha WHERE id = :id AND senha = :senhaantiga');
+                $stmt = $this->pdo->prepare('UPDATE medico SET nome = :nome, senha = :senha, data_alteracao = :data_alteracao WHERE id = :id AND senha = :senhaantiga');
+
+                $date = date("Y-m-d H:i:s");
+                $stmt->bindValue(':data_alteracao', $date);
 
                 $stmt->bindValue(':id', $id);
                 $stmt->bindValue(':nome', $medico->getNome());
