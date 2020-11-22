@@ -4,12 +4,12 @@
 
     <form method='post' action='../controller/medico-controller.php'>
         Nome
-        <input type='text' name='nome' placeholder='Insira o nome do profissional'/>
+        <input type='text' name='nome' placeholder='Insira o nome do profissional' required/>
         E-mail
-        <input type='text' name='email' placeholder='exemplo@dominio.com.br'/>
+        <input type='text' name='email' placeholder='exemplo@dominio.com.br' required/>
         Senha
-        <input type='password' name='senha' placeholder='Escolha um senha forte e segura'/>
-        <button type='submit' name='cadastro'>Realizar cadastro</button>
+        <input type='password' name='senha' placeholder='Escolha um senha forte e segura' required/>
+        <button type='submit' name='cadastra'>Realizar cadastro</button>
     </form>
 
     <a href='../index.php'>Voltar para a Página Inicial</a>
