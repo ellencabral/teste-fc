@@ -27,7 +27,7 @@
                         <form method='post' action='controller/horario-controller.php'>
                             <input type='hidden' name='id' value='<?= $horario->id ?>'/>
                             <button type='submit' name='agenda'>
-                                    <?= date_format(new DateTime($horario->data_horario), 'd/m/Y H:i') ?>
+                                    <?= date_format(new DateTime($horario->data_horario), 'd/m/Y à\s\ H:i') ?>
                                 </a>
                             </button>
                         </form>
