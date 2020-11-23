@@ -19,11 +19,11 @@
 
   <form method='post' action='../controller/horario-controller.php'>
       Nome
-      <?= $usuario->getNome() ?>
+      <?php echo $usuario->getNome() ?>
       Data e hora
       <input type='datetime-local' name='data' required/>
       
-      <input type='hidden' name='id' value='<?= $usuario->getId() ?>'>
+      <input type='hidden' name='id' value='<?php echo $usuario->getId() ?>'>
       
       <button type='submit' name='adiciona-horario'>Adicionar horário</button>
   </form>
@@ -40,12 +40,11 @@
     foreach ($horarios as $horario) {
       ?>
       <div class="horario-container">
-          <?php
-            echo date_format(new DateTime($horario->data_horario), 'd/m/Y H:i');
+          <?php echo date_format(new DateTime($horario->data_horario), 'd/m/Y H:i');
             if($horario->horario_agendado == 0) { ?>
               <form method='post' action='../controller/horario-controller.php'>
-                <input type='hidden' name='id' value='<?= $horario->id ?>'/>
-                <input type='hidden' name='id-medico' value='<?= $id_medico ?>'/>
+                <input type='hidden' name='id' value='<?php echo $horario->id ?>'/>
+                <input type='hidden' name='id-medico' value='<?php echo $id_medico ?>'/>
                 <button type='submit' name='remove'>Remover</button>
               </form>
             <?php

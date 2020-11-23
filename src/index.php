@@ -9,26 +9,26 @@
     foreach ($medicos as $medico) {
         ?>
         <div class="medico-container">
-            <?= $medico->nome ?>
+            <?php echo $medico->nome ?>
         
-            <button><a href='view/editar-cadastro-medico.php?id=<?= $medico->id ?>&medico=true'>Editar cadastro</a></button>
-            <button><a href='view/config-horarios.php?id=<?= $medico->id ?>&medico=true'>Configurar horários</a></button>  
+            <button><a href='view/editar-cadastro-medico.php?id=<?php echo $medico->id ?>&medico=true'>Editar cadastro</a></button>
+            <button><a href='view/config-horarios.php?id=<?php echo $medico->id ?>&medico=true'>Configurar horários</a></button>  
         </div>
         <?php 
             $horarioDAO = new HorarioDAO();
-
             $horarios = $horarioDAO->listaHorarios($medico->id);
         ?>
         <div class="horario-container">
             <?php
                 if($horarios) {
                     foreach ($horarios as $horario) {
-                      ?>
+                        $data = new DateTime($horario->data_horario);
+                        $dataFormatada = date_format($data, 'd/m/Y à\s\ H:i'); ?>
+
                         <form method='post' action='controller/horario-controller.php'>
-                            <input type='hidden' name='id' value='<?= $horario->id ?>'/>
+                            <input type='hidden' name='id' value='<?php echo $horario->id ?>'/>
                             <button type='submit' name='agenda'>
-                                    <?= date_format(new DateTime($horario->data_horario), 'd/m/Y à\s\ H:i') ?>
-                                </a>
+                                <?php echo $dataFormatada ?>
                             </button>
                         </form>
                       <?php

@@ -17,12 +17,12 @@
 
   <form method='post' action='../controller/medico-controller.php'>
       Nome
-      <input type='text' name='nome' value='<?= $usuario->getNome() ?>'/>
+      <input type='text' name='nome' value='<?php echo $usuario->getNome() ?>'/>
       Senha antiga
       <input type='password' name='senhaantiga' placeholder='Insira a senha antiga'/>
       Nova senha
       <input type='password' name='novasenha' placeholder='Escolha uma nova senha forte e segura'/>
-      <input type='hidden' name='id' value='<?= $usuario->getId() ?>'>
+      <input type='hidden' name='id' value='<?php echo $usuario->getId() ?>'>
       
       <button type='submit' name='atualiza'>Atualizar cadastro</button>
   </form>
