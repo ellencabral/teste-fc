@@ -9,38 +9,45 @@
     foreach ($medicos as $medico) {
         ?>
         <div class="medico-container">
-            <?php echo $medico->nome ?>
-        
-            <button><a href='view/editar-cadastro-medico.php?id=<?php echo $medico->id ?>&medico=true'>Editar cadastro</a></button>
-            <button><a href='view/config-horarios.php?id=<?php echo $medico->id ?>&medico=true'>Configurar horários</a></button>  
-        </div>
-        <?php 
-            $horarioDAO = new HorarioDAO();
-            $horarios = $horarioDAO->listaHorarios($medico->id);
-        ?>
-        <div class="horario-container">
-            <?php
-                if($horarios) {
-                    foreach ($horarios as $horario) {
-                        $data = new DateTime($horario->data_horario);
-                        $dataFormatada = date_format($data, 'd/m/Y à\s\ H:i'); ?>
+            <div class="medico-header">
+                <div class="nome-medico">
+                    <?php echo $medico->nome ?>
+                </div>
 
-                        <form method='post' action='controller/horario-controller.php'>
-                            <input type='hidden' name='id' value='<?php echo $horario->id ?>'/>
-                            <button type='submit' name='agenda'>
-                                <?php echo $dataFormatada ?>
-                            </button>
-                        </form>
-                      <?php
-                    }
-                }
-                else {
-                echo "Sem horários";
-                }
+                <div class="medico-buttons">
+                    <button class="button"><a href='view/editar-cadastro-medico.php?id=<?php echo $medico->id ?>&medico=true'>Editar cadastro</a></button>
+                    <button class="button"><a href='view/config-horarios.php?id=<?php echo $medico->id ?>&medico=true'>Configurar horários</a></button>  
+                </div>
+            </div>
+            <?php 
+                $horarioDAO = new HorarioDAO();
+                $horarios = $horarioDAO->listaHorarios($medico->id);
             ?>
+            <div class="horario-container">
+                <?php
+                    if($horarios) {
+                        foreach ($horarios as $horario) {
+                            $data = new DateTime($horario->data_horario);
+                            $dataFormatada = date_format($data, 'd/m/Y à\s\ H:i'); ?>
+
+                            <form method='post' action='controller/horario-controller.php'>
+                                <input type='hidden' name='id' value='<?php echo $horario->id ?>'/>
+                                <button class='button' type='submit' name='agenda'>
+                                    <?php echo $dataFormatada ?>
+                                </button>
+                            </form>
+                        <?php
+                        }
+                    }
+                    else {
+                    echo "Sem horários";
+                    }
+                ?>
+            </div>
         </div>
         <?php
     }
 ?>
+</div>
 </body>
 </html>

@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Signika', sans-serif;
+  background: #eeeeee;
+}
+
+#header {
+  background-color: #0094CF;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.button-container {
+  width: 53%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nome-medico {
+  font-weight: bold;
+  font-size: 25px;
+  color: #004768;
+}
+
+#header .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #0094CF;
+  width: 210px;
+  height: 50px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+a, a:visited, a:hover, a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  border: none;
+  font-family: 'Signika', sans-serif;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.medico-container {
+  background: #fff;
+  width: 50%;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.form-container {
+  background: #fff;
+}
+
+.medico-header {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.medico-header .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #0094CF;
+  color: #0094CF;
+  border-radius: 5px;
+  background: #fff;
+  padding-right: 11px;
+  padding-left: 11px;
+  height: 25px;
+}
+
+.medico-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 38%;
+  flex-wrap: wrap;
+}
+
+.horario-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 25px;
+  margin-bottom: 20px;
+}
+
+.horario-container .button {
+  background: #0094CF;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  color: #fff;
+  padding-right: 13px;
+  padding-left: 13px;
+}
