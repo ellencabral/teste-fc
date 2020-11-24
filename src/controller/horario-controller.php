@@ -1,4 +1,5 @@
 <?php
+  include '../config.php';
   include '../model/horario-classe.php';
   include '../model/horario-classe-dao.php';
 
@@ -13,7 +14,7 @@
     $date = $horario->getDataHorario();
 
     if($horarioDAO->cadastraHorario($horario, $id_medico)) {
-      header('location: '.URL.'config-horarios.php?id='.$id_medico.'&medico=true');
+      header('location: '.URL.'view/config-horarios.php?id='.$id_medico.'&medico=true');
     }
     else {
         echo 'Erro';
@@ -24,7 +25,7 @@
     $horario->setId($_POST['id']);
 
     if($horarioDAO->removeHorario($horario)) {
-      header('location: '.URL.'config-horarios.php?id='.$_POST['id-medico'].'&medico=true');
+      header('location: '.URL.'view/config-horarios.php?id='.$_POST['id-medico'].'&medico=true');
     }
     else {
       echo 'Erro';

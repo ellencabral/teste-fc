@@ -30,7 +30,7 @@
       header('location: '.URL.'index.php');
     }
     else {
-      echo 'Senha incorreta';
+      header('location: '.URL.'view/editar-cadastro-medico.php?id='.$_POST['id-medico'].'&medico=true');
     }
   }
 
