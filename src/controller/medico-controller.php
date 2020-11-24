@@ -26,12 +26,22 @@
 
     $senhaantiga = md5($_POST['senhaantiga']);
     
-    if($medicoDAO->atualizaMedico($medico, $senhaantiga)) {
-      header('location: '.URL.'index.php');
+    $medicoValida = new Medico();
+    $medicoValida->setId($_POST['id']);
+    $usuario = $medicoDAO->visualizaMedico($medicoValida);
+    
+    if($usuario->getSenha() == $senhaantiga) {
+      if($medicoDAO->atualizaMedico($medico, $senhaantiga)) {
+        header('location: '.URL.'index.php');
+      }
+      else {
+        header('location: '.URL.'view/editar-cadastro-medico.php?id='.$_POST['id'].'&medico=true');
+      }
     }
     else {
-      header('location: '.URL.'view/editar-cadastro-medico.php?id='.$_POST['id-medico'].'&medico=true');
+      header('location: '.URL.'view/editar-cadastro-medico.php?id='.$_POST['id'].'&medico=true&wrongpass=true');
     }
+    
   }
 
 ?>

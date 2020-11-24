@@ -75,30 +75,18 @@ class MedicoDAO extends Conexao {
 
     public function atualizaMedico(Medico $medico, $senhaantiga) {
         try {
-            $id = $medico->getId();
+            $stmt = $this->pdo->prepare('UPDATE medico SET nome = :nome, senha = :senha, data_alteracao = :data_alteracao WHERE id = :id AND senha = :senhaantiga');
 
-            $medicoDAO = new MedicoDAO();
-            $medicoA = new Medico();
+            $date = date("Y-m-d H:i:s");
+            $stmt->bindValue(':data_alteracao', $date);
 
-            $usuario = $medicoDAO->visualizaMedico($id, $medicoA);
+            $stmt->bindValue(':id', $medico->getId());
+            $stmt->bindValue(':nome', $medico->getNome());
+            $stmt->bindValue(':senha', $medico->getSenha());
+            $stmt->bindValue(':senhaantiga', $senhaantiga);
 
-            if($usuario->getSenha() == $senhaantiga) {
-                $stmt = $this->pdo->prepare('UPDATE medico SET nome = :nome, senha = :senha, data_alteracao = :data_alteracao WHERE id = :id AND senha = :senhaantiga');
-
-                $date = date("Y-m-d H:i:s");
-                $stmt->bindValue(':data_alteracao', $date);
-
-                $stmt->bindValue(':id', $id);
-                $stmt->bindValue(':nome', $medico->getNome());
-                $stmt->bindValue(':senha', $medico->getSenha());
-                $stmt->bindValue(':senhaantiga', $usuario->getSenha());
-
-                if ($stmt->execute()) {   
-                    return true;
-                }
-                else {
-                    return false;
-                }
+            if ($stmt->execute()) {   
+                return true;
             }
             else {
                 return false;
