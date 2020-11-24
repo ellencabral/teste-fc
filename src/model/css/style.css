@@ -213,7 +213,7 @@ a, a:visited, a:hover, a:active {
   color: rgb(255, 74, 74);
 }
 
-.form-container .mensagem {
+.mensagem {
   color: rgb(255, 74, 74);
   margin-top: 3px;
   margin-bottom: 20px;

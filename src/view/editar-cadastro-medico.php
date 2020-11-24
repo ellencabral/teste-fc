@@ -21,8 +21,17 @@
 
       <label for ="senhaantiga">Senha antiga</label>
       <input class="campo" type='password' name='senhaantiga' placeholder='Insira a senha antiga'/>
-      <div class='mensagem'></div>
-
+      
+      <?php
+        if(isset($_GET['wrongpass'])) { ?>
+          <div class='mensagem'>Senha antiga incorreta.</div>
+        <?php
+        }
+        else { ?>
+          <div class='mensagem'></div>
+        <?php
+        }
+      ?>
       <label for ="novasenha">Nova senha</label>
       <input class="campo" type='password' name='novasenha' placeholder='Escolha uma nova senha forte e segura'/>
       <div class='mensagem'></div>
