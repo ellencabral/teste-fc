@@ -13,14 +13,20 @@
   }
   ?>
   <div class="form-container flex-column">
-    <form class="flex-column" method='post' action='../controller/medico-controller.php'>
+    <form class="flex-column" method='post' onsubmit="return validaForm()" action='../controller/medico-controller.php'>
       <h1>Editar médico</h1>
       <label for ="nome">Nome</label>
-      <input type='text' name='nome' value='<?php echo $usuario->getNome() ?>'/>
+      <input class="campo" type='text' name='nome' value='<?php echo $usuario->getNome() ?>'/>
+      <div class='mensagem'></div>
+
       <label for ="senhaantiga">Senha antiga</label>
-      <input type='password' name='senhaantiga' placeholder='Insira a senha antiga'/>
+      <input class="campo" type='password' name='senhaantiga' placeholder='Insira a senha antiga'/>
+      <div class='mensagem'></div>
+
       <label for ="novasenha">Nova senha</label>
-      <input type='password' name='novasenha' placeholder='Escolha uma nova senha forte e segura'/>
+      <input class="campo" type='password' name='novasenha' placeholder='Escolha uma nova senha forte e segura'/>
+      <div class='mensagem'></div>
+
       <input type='hidden' name='id' value='<?php echo $usuario->getId() ?>'>
       
       <button class='button' type='submit' name='atualiza'>Atualizar cadastro</button>
