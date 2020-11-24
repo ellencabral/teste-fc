@@ -136,19 +136,21 @@ a, a:visited, a:hover, a:active {
   border: 1px solid rgb(216, 216, 216);
   font-family: 'Signika', sans-serif;
   font-size: 16px;
+  color: #004768;
+  font-weight: bold;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #a5a5a5;
+  color: #b6b6b6;
   opacity: 1; /* Firefox */
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color:#a5a5a5;
+  color: #b6b6b6;
 }
 
 ::-ms-input-placeholder { /* Microsoft Edge */
-  color: #a5a5a5;
+  color:  #b6b6b6;
 }
 
 .form-container .button {
