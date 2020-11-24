@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="<?php echo URL;?>model/css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Signika' rel='stylesheet'>
-    <script src='<?php echo URL;?>script.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src='<?php echo URL;?>/model/js/script.js'></script>
     <title>Listagem de médicos</title>
 </head>
 <body>

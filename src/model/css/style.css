@@ -120,7 +120,7 @@ a, a:visited, a:hover, a:active {
 .form-container h1 {
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .form-container label {
@@ -129,7 +129,6 @@ a, a:visited, a:hover, a:active {
 }
 
 .form-container input {
-  margin-bottom: 20px;
   padding: 8px;
   border-radius: 3px;
   border: 1px solid rgb(216, 216, 216);
@@ -212,4 +211,10 @@ a, a:visited, a:hover, a:active {
   background: none;
   text-decoration: underline;
   color: rgb(255, 74, 74);
+}
+
+.form-container .mensagem {
+  color: rgb(255, 74, 74);
+  margin-top: 3px;
+  margin-bottom: 20px;
 }
