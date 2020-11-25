@@ -218,3 +218,65 @@ a, a:visited, a:hover, a:active {
   margin-top: 3px;
   margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 425px) {
+  .medico-container {
+    width: 80%;
+  }
+  .medico-container .medico-header {
+    flex-direction: column;
+    margin-left: 0;
+  }
+  .medico-header h1 {
+    margin-bottom: 10px;
+  }
+  .medico-header .medico-buttons {
+    width: 100%;
+  }
+
+  .medico-header .medico-buttons .button {
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    width: 100%;
+    height: 28px;
+  }
+
+  .medico-container .horario-container {
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .medico-container .horario-container .button {
+    font-size: 18px;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  .medico-container .horario-container form {
+    width: 100%;
+  }
+
+  .form-container {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .config-container {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .config-container .form-container {
+    margin-right: 0;
+  }
+
+  .horarios-container {
+    width: 80%;
+    margin-bottom: 30px;
+  }
+
+  .horarios-container .horario-container .button {
+    font-size: 18px;
+  }
+}
